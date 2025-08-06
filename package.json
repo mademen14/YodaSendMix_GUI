@@ -1,0 +1,54 @@
+{
+  "name": "yoda-send-gui",
+  "version": "2.7.0",
+  "description": "Interface graphique pour YODA SEND MIX SMTP V2.7",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && electron .\"",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron": "^27.0.0",
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "socks": "^2.7.1",
+    "dns": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.0",
+    "electron-builder": "^24.6.4",
+    "lucide-react": "^0.344.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.2",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.yodasend.emailsender",
+    "productName": "YODA Send Email Sender",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "build/**/*",
+      "main.js",
+      "preload.js",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
